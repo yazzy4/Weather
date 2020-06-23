@@ -14,13 +14,94 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="atmosphere" translatesAutoresizingMaskIntoConstraints="NO" id="qzz-xh-LjH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun Cloud" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFD-pI-SdV">
+                                <rect key="frame" x="82.5" y="125" width="210.5" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="lqd-wt-05c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="44"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a city" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c4X-Lm-bId">
+                                <rect key="frame" x="77.5" y="255" width="220" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="0.4041095890410959" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="pzJ-SX-jpA"/>
+                                    <constraint firstAttribute="height" constant="35" id="ziB-4Y-PXz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcZ-5Y-6fE">
+                                <rect key="frame" x="100" y="330" width="175" height="45"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="bDX-OT-Nky"/>
+                                    <constraint firstAttribute="height" constant="45" id="sCX-6R-eAn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="GO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rcZ-5Y-6fE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0eh-RK-geu"/>
+                            <constraint firstItem="c4X-Lm-bId" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Vc-Tb-9YV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qzz-xh-LjH" secondAttribute="bottom" id="6Iz-Hc-064"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qzz-xh-LjH" secondAttribute="trailing" id="DqB-AA-HFd"/>
+                            <constraint firstItem="fFD-pI-SdV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FYI-4y-5Jn"/>
+                            <constraint firstItem="qzz-xh-LjH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UeL-hl-HlS"/>
+                            <constraint firstItem="rcZ-5Y-6fE" firstAttribute="top" secondItem="c4X-Lm-bId" secondAttribute="bottom" constant="40" id="evo-jR-vpG"/>
+                            <constraint firstItem="qzz-xh-LjH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f7H-hw-695"/>
+                            <constraint firstItem="c4X-Lm-bId" firstAttribute="top" secondItem="fFD-pI-SdV" secondAttribute="bottom" constant="70" id="uVP-bv-hLz"/>
+                            <constraint firstItem="fFD-pI-SdV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="v5w-Ht-jDd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="VVt-BC-lZL" kind="show" identifier="segue.main.enterCityToWeather" id="E0L-E3-j2o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="116"/>
+            <point key="canvasLocation" x="132" y="115.59220389805098"/>
+        </scene>
+        <!--DetailVC-->
+        <scene sceneID="Kb3-B9-I3G">
+            <objects>
+                <viewController id="VVt-BC-lZL" customClass="DetailVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t76-0B-U5S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="atmosphere" translatesAutoresizingMaskIntoConstraints="NO" id="uIP-Na-91d">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2w0-65-WDp" firstAttribute="trailing" secondItem="uIP-Na-91d" secondAttribute="trailing" id="aQx-do-gH0"/>
+                            <constraint firstItem="uIP-Na-91d" firstAttribute="top" secondItem="2w0-65-WDp" secondAttribute="top" id="hkH-Mi-YNW"/>
+                            <constraint firstItem="uIP-Na-91d" firstAttribute="leading" secondItem="2w0-65-WDp" secondAttribute="leading" id="j4y-4F-i4d"/>
+                            <constraint firstItem="2w0-65-WDp" firstAttribute="bottom" secondItem="uIP-Na-91d" secondAttribute="bottom" id="yRH-xq-e6c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2w0-65-WDp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2uf-5H-9cp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHQ-XL-8ox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="116"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="atmosphere" width="1150" height="863"/>
+    </resources>
 </document>
