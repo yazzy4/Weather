@@ -9,10 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var cityTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    @IBAction func didTapGoButton(_ sender: UIButton){
+        
     }
 
 
