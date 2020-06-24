@@ -43,6 +43,13 @@ class ViewController: UIViewController {
                     let weatherReport = try JSONDecoder().decode(WeatherReport.self, from: data)
                     print(weatherReport)
                     
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "segue.main.enterCityToWeather", sender: weatherReport)
+                    }
+                    
+                    
                 } catch  {
                     print(error)
                 }
@@ -50,13 +57,18 @@ class ViewController: UIViewController {
         }
         dataTask.resume()
         
-//        performSegue(withIdentifier: "segue.main.enterCityToWeather", sender: nil)
-//
+
     }
 
-    @IBAction func returnToMainVC(_ sender: UIStoryboardSegue){
+    @IBAction func returnToMainVC(_ sender: UIStoryboardSegue){}
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         
+        if let weatherVC = segue.destination as? DetailVC, let weatherReport = sender as? WeatherReport {
+            weatherVC.weatherReport = weatherReport
+        }
     }
-
 }
 

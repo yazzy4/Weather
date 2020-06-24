@@ -15,8 +15,17 @@ class DetailVC: UIViewController {
     @IBOutlet weak var temparatureLabel: UILabel!
     @IBOutlet weak var descpritionLabel: UILabel!
     
+    var weatherReport: WeatherReport!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let weatherReport = weatherReport else { return }
+        cityLabel.text = weatherReport.city
+        temparatureLabel.text = weatherReport.degreesFarenheit
+        descpritionLabel.text = weatherReport.conditions.first?.description
+        weatherImageView.image = weatherReport.conditionImage
     }
    
  
