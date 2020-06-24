@@ -48,6 +48,9 @@
                                 <state key="normal" title="GO">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapGoButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="eFt-EZ-BNF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -66,6 +69,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cityTextField" destination="c4X-Lm-bId" id="9yF-tU-jCA"/>
                         <segue destination="VVt-BC-lZL" kind="show" identifier="segue.main.enterCityToWeather" id="E0L-E3-j2o"/>
                     </connections>
                 </viewController>
@@ -94,12 +98,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FOE-Vr-zyV">
-                                <rect key="frame" x="70" y="163" width="235" height="235"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="FOE-Vr-zyV" secondAttribute="height" multiplier="1:1" id="NCB-oj-4SM"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="87˚" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueL-xP-dQq">
                                 <rect key="frame" x="125" y="406" width="125" height="40"/>
                                 <constraints>
@@ -120,6 +118,9 @@
                                 <state key="normal" title="Choose a city">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="rvF-yG-uu5" kind="unwind" unwindAction="returnToMainVC:" id="gdK-6T-NLK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Very Hot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESX-pA-eH4">
                                 <rect key="frame" x="16" y="454" width="343" height="30.5"/>
@@ -127,6 +128,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FOE-Vr-zyV">
+                                <rect key="frame" x="70" y="163" width="235" height="235"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FOE-Vr-zyV" secondAttribute="height" multiplier="1:1" id="NCB-oj-4SM"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -137,7 +144,6 @@
                             <constraint firstItem="2w0-65-WDp" firstAttribute="trailing" secondItem="ESX-pA-eH4" secondAttribute="trailing" constant="16" id="OP0-w9-cZD"/>
                             <constraint firstItem="2w0-65-WDp" firstAttribute="trailing" secondItem="ZzZ-rq-bVf" secondAttribute="trailing" constant="40" id="T6u-BA-jhm"/>
                             <constraint firstItem="JIL-Zk-0fN" firstAttribute="centerX" secondItem="t76-0B-U5S" secondAttribute="centerX" id="U7x-4K-Lcq"/>
-                            <constraint firstItem="ESX-pA-eH4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2w0-65-WDp" secondAttribute="leading" id="UTH-Va-7Jq"/>
                             <constraint firstItem="ueL-xP-dQq" firstAttribute="top" secondItem="FOE-Vr-zyV" secondAttribute="bottom" constant="8" id="Ucg-OS-A2w"/>
                             <constraint firstItem="ZzZ-rq-bVf" firstAttribute="top" secondItem="2w0-65-WDp" secondAttribute="top" constant="120" id="Xue-2o-vHX"/>
                             <constraint firstItem="ESX-pA-eH4" firstAttribute="top" secondItem="ueL-xP-dQq" secondAttribute="bottom" constant="8" id="dL8-BD-mFe"/>
@@ -148,8 +154,15 @@
                         <viewLayoutGuide key="safeArea" id="2w0-65-WDp"/>
                     </view>
                     <navigationItem key="navigationItem" id="2uf-5H-9cp"/>
+                    <connections>
+                        <outlet property="cityLabel" destination="ZzZ-rq-bVf" id="oc2-L6-pEz"/>
+                        <outlet property="descpritionLabel" destination="ESX-pA-eH4" id="mLh-Cy-eBk"/>
+                        <outlet property="temparatureLabel" destination="ueL-xP-dQq" id="aXe-9b-sjA"/>
+                        <outlet property="weatherImageView" destination="FOE-Vr-zyV" id="64L-0Z-scS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHQ-XL-8ox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rvF-yG-uu5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="901.60000000000002" y="115.59220389805098"/>
         </scene>
